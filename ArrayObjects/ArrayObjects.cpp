@@ -1,12 +1,6 @@
 ﻿#include <iostream>
 #include "Employee.h"
 using namespace std;
-void PrintEmployee(const Employee& employee)
-{
-	cout << "Firstname: " << employee.getFirstName() << endl;
-	cout << "Lastname: " << employee.getLastName() << endl;
-	cout << "Experience: " << employee.getExperience() << endl;
-}
 int main()
 {
 	char* firstName = new char[255];
@@ -19,13 +13,16 @@ int main()
 	cout << "Enter experience: ";
 	cin >> experience;
 	Employee employee(firstName, lastName, experience);
-	PrintEmployee(employee);
+	employee.Print(); //PrintEmployee(employee)
 	cout << "Change experience." << endl;
 	cout << "Enter new experience: ";
 	cin >> experience;
 	employee.setExperience(experience);
 	cout << "New experience is: " << employee.getExperience() << endl;
-	PrintEmployee(employee);
+	employee.Print();
+	Employee em(employee); 
+	cout << "New employee: " << endl;
+	em.Print(); // PrintEmployee(em)
 	delete[] firstName;
 	delete[] lastName;
 }

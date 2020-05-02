@@ -1,5 +1,7 @@
 ﻿#include <iostream>
 #include "Employee.h"
+#include "Company.h"
+
 using namespace std;
 int main()
 {
@@ -23,6 +25,12 @@ int main()
 	Employee em(employee); 
 	cout << "New employee: " << endl;
 	em.Print(); // PrintEmployee(em)
+	em.setExperience(10);
+	cout << endl;
+	Employee comp[2] = { employee, em };
+	Company company(comp, 2);
+	cout << "Print Company: " << endl;
+	company.printCompany();
 	delete[] firstName;
 	delete[] lastName;
 }
